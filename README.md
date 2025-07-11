@@ -1,4 +1,4 @@
-# **Web Develop BackEnd Template**
+# **Refresh Token TS**
 
 <div align="center">
     <img src="./shared/assets/icons/json.svg" alt="JSON Icon" width="150">
@@ -27,13 +27,13 @@ Para realizar el montaje de esta aplicación para avances en su desarrollo, siga
 3. ✨ **Clone el repositorio de `RefreshToken-TS`**:
 
     ```sh
-    git clone <>
+    git clone https://github.com/DanielGonzalez-Cistem/RefreshToken-TS
     ```
 
 4. ✨ **Nos situamos en la raíz del proyecto**:
 
     ```sh
-    cd "learn-refresh-token"
+    cd "RefreshToken-TS"
     ```
 
 5. ✨ **Instalamos los módulos de Node JS**:
@@ -61,6 +61,42 @@ Una vez montado el proyecto procederemos a ejecutar la aplicación, pero antes d
 4. ✨ **En el contenido, ingrese lo siguiente:** 
 
     ```sh
+    #* <<< Variables de Entorno >>>
+    #* 1. Haga una copia del `.env-example` y peguela en la raíz del proyecto (es vital que este en la raíz).
+    #* 2. Renombre el archivo copiado a ".env" y la aplicación hará el resto.
+
+    #* !!ProTip: Se recomienda llevar un orden controlado en las variables de entorno que vayan creando.
+
+    NODE_ENV="development"
+    VERSION="v1.0.0-stable"
+    BRAND="Refresh Token TS"
+    ENABLE_SHOW_ERROR="NO"
+    TIMEZONE="America/Los_Angeles"
+    USER_ATTEMPTS="3"
+
+    APP_PORT=""
+    AUTH_PORT=""
+
+    HOST=""
+    SSL_CERT=""
+    SSL_KEY=""
+
+    DB_SERVER=""
+    DB_USER=""
+    DB_PWD=""
+    DB_NAME=""
+    DB_PORT=""
+    DB_ENABLE_ENCRYPT="NO"
+    DB_ENABLE_TRUST_SERVER_CERTIFICATE="NO"
+    DB_ENABLE_LOGS="NO"
+
+    PWD_SECRET=""
+    JWT_ACCESS_SECRET=""
+    JWT_REFRESH_SECRET=""
+
+    USER_LEVEL_UNLOCK="10m"
+    JWT_ACCESS_EXPIRES="5m"
+    JWT_REFRESH_EXPIRES="10m"
     ```
 
 5. **✨ Especifique los valores correspondientes en las variables de entorno**-
@@ -78,7 +114,15 @@ npm run dev
 La consola, debería regresar una respuesta como esta:
 
 ```sh
+🟢 Refresh Token TS v1.0.0-stable ha sido inicializado...
 
+⚡[APP] running at:
+  ➜ Local:   http://localhost:5000
+  ➜ Network: http://your-local-ip:5000
+
+⚡[AUTH] running at:
+  ➜ Local:   http://localhost:3000
+  ➜ Network: http://your-local-ip:3000
 ```
 
 ## 🧠 **Acerca De**

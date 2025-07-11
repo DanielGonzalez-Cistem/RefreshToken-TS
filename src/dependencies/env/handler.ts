@@ -51,25 +51,13 @@ export const dbEnvs = {
 }
 
 /**
- * Centralización de variables de entorno para configuración de correos.
- * @see {@link https://www.npmjs.com/package/env-var|**Documentación env-var**}
- */
-export const mailEnvs = {
-    PROVIDER_NAME: env.get('PROVIDER_NAME').required().asString(),
-    EMAIL: env.get('EMAIL').required().asString(),
-    EMAIL_HOST: env.get('EMAIL_HOST').required().asString(),
-    EMAIL_PORT: env.get('EMAIL_PORT').required().asString(),
-    EMAIL_USER: env.get('EMAIL_USER').required().asString(),
-    EMAIL_PWD: env.get('EMAIL_PWD').required().asString(),
-}
-
-/**
  * Centralización de variables de entorno de claves secretas.
  * @see {@link https://www.npmjs.com/package/env-var|**Documentación env-var**}
  */
 export const secretEnvs = {
     PWD_SECRET: env.get('PWD_SECRET').required().asString(),
-    JWT_SECRET: env.get('JWT_SECRET').required().asString()
+    JWT_ACCESS_SECRET: env.get('JWT_ACCESS_SECRET').required().asString(),
+    JWT_REFRESH_SECRET: env.get('JWT_REFRESH_SECRET').required().asString()
 }
 
 /**
@@ -78,6 +66,6 @@ export const secretEnvs = {
  */
 export const timeEnvs = {
     USER_LEVEL_UNLOCK: env.get('USER_LEVEL_UNLOCK').required().asString(),
-    JWT_AUTH_EXPIRES: env.get('JWT_AUTH_EXPIRES').required().asString(),
-    JWT_LINK_EXPIRES: env.get('JWT_LINK_EXPIRES').required().asString()
+    JWT_ACCESS_EXPIRES: env.get('JWT_ACCESS_EXPIRES').required().asString(),
+    JWT_REFRESH_EXPIRES: env.get('JWT_REFRESH_EXPIRES').required().asString()
 }
