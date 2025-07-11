@@ -1,0 +1,62 @@
+{
+  "name": "name-project",
+  "version": "1.0.0",
+  "description": "<project-description>",
+  "main": "src/main.ts",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only --files -r tsconfig-paths/register --watch .env src/main.ts",
+    "build": "webpack --config webpack.config.ts --mode production",
+    "start": "node ./shared/dist/bundle.prod.min.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CistemInnovacion/<project>.git"
+  },
+  "keywords": [
+    "REST API",
+    "Node",
+    "JS",
+    "TS",
+    "API",
+    "Solutions"
+  ],
+  "author": "Cistem Innovacion <contacto@cisnerosgroup.com.mx>",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/CistemInnovacion/<project>/issues"
+  },
+  "homepage": "https://github.com/CistemInnovacion/<project>#readme",
+  "devDependencies": {
+    "@types/compression": "^1.7.5",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/luxon": "^3.6.2",
+    "@types/morgan": "^1.9.9",
+    "@types/node": "^24.0.10",
+    "@types/webpack-node-externals": "^3.0.4",
+    "morgan": "^1.10.0",
+    "terser-webpack-plugin": "^5.3.11",
+    "ts-loader": "^9.5.2",
+    "ts-node-dev": "^2.0.0",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.7.3",
+    "webpack": "^5.98.0",
+    "webpack-cli": "^6.0.1",
+    "webpack-node-externals": "^3.0.0"
+  },
+  "dependencies": {
+    "compression": "^1.8.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.0.1",
+    "env-var": "^7.5.0",
+    "express": "^4.21.2",
+    "express-async-errors": "^3.1.1",
+    "express-validator": "^7.2.1",
+    "helmet": "^8.0.0",
+    "luxon": "^3.6.1",
+    "node-cron": "^4.2.0",
+    "winston": "^3.17.0",
+    "winston-daily-rotate-file": "^5.0.0"
+  }
+}

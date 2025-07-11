@@ -1,0 +1,16 @@
+{
+    "recommendations": [
+        "quicktype.quicktype",
+        "GitHub.vscode-github-actions",
+        "streetsidesoftware.code-spell-checker-spanish",
+        "christian-kohler.path-intellisense",
+        "eamodio.gitlens",
+        "yoavbls.pretty-ts-errors",
+        "ms-vscode.vscode-typescript-next",
+        "aaron-bond.better-comments",
+        "usernamehw.errorlens",
+        "yzhang.markdown-all-in-one",
+        "pmneo.tsimporter",
+        "pflannery.vscode-versionlens"
+    ]
+}
