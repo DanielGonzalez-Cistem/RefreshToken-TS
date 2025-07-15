@@ -40,10 +40,8 @@ declare global {
      *  - **P**: Corresponde a las propiedades de la entidad o bien, propiedades de `req.params` en una petición.
      *  - **Q**: Corresponde a las propiedades de la entidad o bien, propiedades de `req.query` en una petición.
      */
-    interface IGDTO<B, P, Q> {
-        body?: B;
-        params?: P;
-        query?: Q;
+    interface IGDTO<T> {
+        data: T;
         options?: IGOptions;
     }
 

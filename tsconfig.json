@@ -126,6 +126,7 @@
     "src/**/*",
     "src/dependencies/types/app.d.ts",
     "src/dependencies/types/dependencies.d.ts",
+    "src/dependencies/types/enums.d.ts",
     "src/dependencies/types/errors.d.ts",
     "src/dependencies/types/status.code.d.ts"
   ]
