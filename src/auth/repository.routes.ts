@@ -1,11 +1,13 @@
 import { Router } from 'express';
 
+import { UserRouter } from './user/router';
 import { WelcomeRouter } from './welcome/router';
 
 /**
  * Definición de tipos de enrutadores.
  */
 type TypeRouters = 
+    'user'    |
     'welcome'                 
 ;
 
@@ -20,6 +22,7 @@ type TypeAppRouters = {
  * Centralización de enrutadores del servidor **App**.
  */
 const routers: TypeAppRouters = {
+    user: UserRouter(),
     welcome: WelcomeRouter()
 }
 

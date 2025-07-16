@@ -19,12 +19,28 @@ declare global {
     type TGPropRequest = 'body' | 'params' | 'query';
 
     /**
+     * Tipado global para definir origenes de token.
+     */
+    type TGOrigin = 'LOGIN' | 'RESET_PWD' | 'LOGIN_WITHOUT_PWD' | 'VERIFY';
+
+    /**
+     * Tipado global para definir los tipos de token.
+     */
+    type TGToken = 'ACCESS_TOKEN' | 'GENERIC' | 'REFRESH_TOKEN';
+
+    /**
+     * Tipado global para definir los tipos de expiración.
+     */
+    type TGExpirationToken = 'ACCESS_TOKEN' | 'REFRESH_TOKEN';
+    // type TGExpirationToken = 'ACCESS_TOKEN' | 'LINK' | 'REFRESH_TOKEN';
+
+    /**
      * Tipado global que define la estructura de reglas con Express Validator.
      */
     type TGValidation = ValidationChain[]|RequestHandler[];
 
     /**
-     * Tipado global de propiedades en esquema de error nativo de JS.
+     * Interfaz global de propiedades en esquema de error nativo de JS.
      */
     interface IGErrorJS {
         errorConfig?: IGErrorConfig;
@@ -32,6 +48,17 @@ declare global {
         name: string;
         stack: any;
         type?: string;
+    }
+
+    /**
+     * Interfaz gobal que define las propiedades de generación de token.
+     */
+    interface IGenerateToken {
+        origin: TGOrigin;
+        payload: object;
+        signToken: string;
+        typeExpires: TGExpirationToken;
+        typeToken?: TGToken;
     }
 
 }

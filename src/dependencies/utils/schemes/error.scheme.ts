@@ -51,7 +51,9 @@ export const errorScheme: Record<TGErrors, TGErrorFactory> = {
                 code: 'B04',
                 message: `El token proporcionado ha expirado`,
                 details: {
-                    is_token_login: errorConfig.details?.is_token_login || false
+                    is_token_login: errorConfig.details?.is_token_login || false,
+                    access_token_expired: errorConfig.details?.access_token_expired || false,
+                    refresh_token_expired: errorConfig.details?.refresh_token_expired || false,
                 }
             }
         }

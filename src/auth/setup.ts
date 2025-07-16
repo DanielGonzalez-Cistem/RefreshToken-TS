@@ -95,6 +95,7 @@ export const useSetupAuthServer = (): IGSetupServer => {
         const BASE_PATH: string = '/api/v1/auth';
 
         //* Invoicación de servicios
+        app.use(`${BASE_PATH}`, repositoryRouters('user'));
         app.use(`${BASE_PATH}`, repositoryRouters('welcome'));
 
         //* Controlar peticiones desconocidas

@@ -9,7 +9,7 @@ import { applyHashing } from '@helpers/hashing/handler';
  * @function
  * @name AddUserService
  * @param args Argumentos de función.
- * @returns 
+ * @returns Identificador de usuario.
  */
 export const AddUserService = async ( args: IGDTO<IBaseUser> ) => {
 

@@ -29,6 +29,7 @@ declare global {
      * Interfaz global que define los posibles detalles de un error.
      */
     interface IGErrorDetails {
+        access_token_expired?: boolean|null;
         error_message?: string|null;
         error_name?: string|null;
         error_stack?: string|null;
@@ -36,6 +37,7 @@ declare global {
         is_token_login?: boolean;
         is_user_pending?: boolean;
         redirect_user?: boolean;
+        refresh_token_expired?: boolean|null;
         unlock_date?: Date|null;
         waiting_time?: Date|null;
     }

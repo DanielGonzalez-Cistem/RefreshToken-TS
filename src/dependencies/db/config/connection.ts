@@ -58,7 +58,6 @@ export const dbConnection = (): Sequelize => {
     }
 
     //* Se crea la instancia única de Sequelize
-    console.log(dbEnvs.DB_NAME, dbEnvs.DB_USER, dbEnvs.DB_PWD,);
     sequelizeInstance = new Sequelize(dbEnvs.DB_NAME, dbEnvs.DB_USER, dbEnvs.DB_PWD, sqlProps);
 
     return sequelizeInstance;
