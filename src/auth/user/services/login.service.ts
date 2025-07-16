@@ -1,9 +1,11 @@
 import { models } from '@db/repository.models';
-import { IBaseUser } from '@interfaces/user.interface';
 import { secretEnvs, timeEnvs } from '@env/handler';
-import { generateToken } from '@helpers/jwt/handler';
 import { Exception } from '@errors/exception.error';
+import { generateToken } from '@helpers/jwt/handler';
 import { verifyHashing } from '@helpers/hashing/handler';
+import { IBaseUser } from '@interfaces/user.interface';
+import { formatDateWithTimeZone } from '@utils/formatters/time/handler';
+import { applyParseMilliseconds } from '@utils/parsings/apply.parse.milliseconds';
 
 /**
  * Servicio que gestiona la sesión y autenticación de usuario.
@@ -15,9 +17,8 @@ import { verifyHashing } from '@helpers/hashing/handler';
  */
 export const LoginService = async ( args: IGDTO<IBaseUser> ) => {
 
-    console.log('ARGS: ', args);
     const { data } = args;
-    const { User } = models;
+    const { Session, User } = models;
 
     //* Verificamos si el usuario existe
     const user = await User.findOne({
@@ -30,8 +31,6 @@ export const LoginService = async ( args: IGDTO<IBaseUser> ) => {
     const password: string = data.password + secretEnvs.PWD_SECRET;
     const isPassword: boolean = await verifyHashing(password, user.password);
     if ( !isPassword ) throw new Exception({ type: 'AUTHENTICATION_ERROR' });
-
-    console.log('OK...');
 
     //? Generación de token de acceso
     const accessToken = generateToken({
@@ -49,6 +48,18 @@ export const LoginService = async ( args: IGDTO<IBaseUser> ) => {
         signToken: secretEnvs.JWT_REFRESH_SECRET,
         typeExpires: 'REFRESH_TOKEN',
         typeToken: 'REFRESH_TOKEN'
+    });
+
+    //* Generar sesión de usuario
+    const dateExpirationAccessToken: Date = new Date(Date.now() + applyParseMilliseconds(timeEnvs.JWT_ACCESS_EXPIRES));
+    const dateExpirationRefreshToken: Date = new Date(Date.now() + applyParseMilliseconds(timeEnvs.JWT_REFRESH_EXPIRES));
+
+    await Session.create({
+        idUser: user.idUser!,
+        accessToken,
+        refreshToken,
+        dateExpirationAccessToken: formatDateWithTimeZone(dateExpirationAccessToken.getTime())!,
+        dateExpirationRefreshToken: formatDateWithTimeZone(dateExpirationRefreshToken.getTime())!
     });
 
     return {
