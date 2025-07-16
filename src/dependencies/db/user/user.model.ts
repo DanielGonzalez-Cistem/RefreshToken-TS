@@ -46,7 +46,7 @@ export class User extends Model<IBaseUser, UserCreationAttributes> implements IB
                 lastAccess: {
                     field: 'UltimoAcceso',
                     type: DataTypes.DATE,
-                    allowNull: false
+                    allowNull: true
                 },
                 lastPasswords: {
                     field: 'UltimasContrasenas',
@@ -77,7 +77,9 @@ export class User extends Model<IBaseUser, UserCreationAttributes> implements IB
                 sequelize,
                 tableName: 'Usuario',
                 modelName: 'user',
-                timestamps: true
+                timestamps: true,
+                updatedAt: 'FechaEdicion',
+                createdAt: 'FechaAlta'
             }
         );
 
