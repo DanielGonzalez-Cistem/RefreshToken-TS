@@ -44,7 +44,7 @@ export const dbEnvs = {
     DB_USER: env.get('DB_USER').required().asString(),
     DB_PWD: env.get('DB_PWD').required().asString(),
     DB_NAME: env.get('DB_NAME').required().asString(),
-    DB_PORT: env.get('DB_PORT').default(''),
+    DB_PORT: env.get('DB_PORT').default('').asString(),
     DB_ENABLE_ENCRYPT: env.get('DB_ENABLE_ENCRYPT').required().asEnum(['YES', 'NO']),
     DB_ENABLE_TRUST_SERVER_CERTIFICATE: env.get('DB_ENABLE_TRUST_SERVER_CERTIFICATE').required().asEnum(['YES', 'NO']),
     DB_ENABLE_LOGS: env.get('DB_ENABLE_LOGS').required().asEnum(['YES', 'NO']),
