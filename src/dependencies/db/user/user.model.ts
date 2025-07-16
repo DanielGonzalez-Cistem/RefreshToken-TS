@@ -1,4 +1,4 @@
-import { DataTypes, Model, Optional, Sequelize } from 'sequelize';
+import { DataTypes, Model, Sequelize } from 'sequelize';
 
 import { IBaseUser } from '@interfaces/user.interface';
 
@@ -78,13 +78,12 @@ export class User extends Model<IBaseUser, UserCreationAttributes> implements IB
                 tableName: 'Usuario',
                 modelName: 'user',
                 timestamps: true,
-                updatedAt: 'FechaEdicion',
-                createdAt: 'FechaAlta'
+                createdAt: 'FechaAlta',
+                updatedAt: 'FechaEdicion'
             }
         );
 
         return User;
-        
     }
 
 }

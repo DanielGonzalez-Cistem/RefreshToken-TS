@@ -21,7 +21,8 @@ export const UserRouter = (): Router => {
      * Centralización de rutas del enrutador **Usuario**.
     */
     const paths = {
-        addUser: '/user'
+        addUser: '/user',
+        getUsers: '/users',
     };
 
     /**
@@ -36,6 +37,19 @@ export const UserRouter = (): Router => {
         paths.addUser,
         addUserRule,
         repositoryControllers('addUser')
+    );
+
+    /**
+     * * Servicio que agrega un nuevo usuario.  
+     * 
+     * @function
+     * @name GET /users
+     * @path {GET} /users
+     * @memberof userRouter
+    */
+    userRouter.get(
+        paths.getUsers,
+        repositoryControllers('getUsers')
     );
 
     return userRouter;

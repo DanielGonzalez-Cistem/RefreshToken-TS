@@ -1,5 +1,5 @@
 /**
- * Definición de atributos de la entidad **Example**.
+ * Definición de atributos de la entidad **Usuario**.
  * 
  * **NOTA:** Esta interfaz puede reutilizarla para tipar modelos de DB o cualquier otro componente.
  */
@@ -16,6 +16,6 @@ export interface IBaseUser {
 }
 
 /**
- * Definición de atributos de la entidad **Consumos** para editar.
+ * Definición de atributos de la entidad **Usuario** para editar.
  */
 export type IUserOptional = Partial<IBaseUser>;

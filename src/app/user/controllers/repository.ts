@@ -1,12 +1,14 @@
 import { Request, Response, NextFunction } from 'express';
 
 import { AddUserController } from './add.user.controller';
+import { UsersController } from './users.controller';
 
 /**
   * Definición de tipos de controladores.
  */
 type TypeControllers = 
-    'addUser'
+    'addUser' |
+    'getUsers'
 ;
 
 /**
@@ -20,7 +22,8 @@ type TypeAppControllers = {
   * Centralización de controladores de **Usuario**.
  */
 const controllers: TypeAppControllers = {
-    addUser: AddUserController
+    addUser: AddUserController,
+    getUsers: UsersController,
 }
 
 /**
