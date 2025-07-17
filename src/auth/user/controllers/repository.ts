@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 
 import { LoginController } from './login.controller';
+import { LogoutController } from './logout.controller';
 import { RefreshTokenController } from './refresh.token.controller';
 
 /**
@@ -8,6 +9,7 @@ import { RefreshTokenController } from './refresh.token.controller';
  */
 type TypeControllers = 
   'login'         |
+  'logout'        |
   'refreshToken' 
 ;
 
@@ -23,6 +25,7 @@ type TypeAppControllers = {
  */
 const controllers: TypeAppControllers = {
     login: LoginController,
+    logout: LogoutController,
     refreshToken: RefreshTokenController
 }
 

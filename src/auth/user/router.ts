@@ -24,6 +24,7 @@ export const UserRouter = (): Router => {
     */
     const paths = {
         login: '/login',
+        logout: '/logout',
         refreshToken: '/refresh_token'
     };
 
@@ -39,6 +40,20 @@ export const UserRouter = (): Router => {
         paths.login,
         loginRule,
         repositoryControllers('login')
+    );
+
+    /**
+     * * Servicio que realiza la finalización de usuario.
+     * 
+     * @function
+     * @name POST /logout
+     * @path {POST} /logout
+     * @memberof userRouter
+    */
+    userRouter.delete(
+        paths.logout,
+        refreshAuthorization,
+        repositoryControllers('logout')
     );
 
     /**
