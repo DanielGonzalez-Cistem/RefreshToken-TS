@@ -49,7 +49,7 @@ export const errorScheme: Record<TGErrors, TGErrorFactory> = {
             status_code: statusCode.UNAUTHORIZED,
             error: {
                 code: 'B04',
-                message: `El token proporcionado ha expirado`,
+                message: `${errorConfig.message}`,
                 details: {
                     is_token_login: errorConfig.details?.is_token_login || false,
                     access_token_expired: errorConfig.details?.access_token_expired || false,
@@ -64,7 +64,7 @@ export const errorScheme: Record<TGErrors, TGErrorFactory> = {
             status_code: statusCode.UNAUTHORIZED,
             error: {
                 code: 'B05',
-                message: `El token proporcionado no es válido`,
+                message: `${errorConfig.message}`,
                 details: {
                     redirect_user: errorConfig.details?.redirect_user || false
                 }
@@ -155,7 +155,7 @@ export const errorScheme: Record<TGErrors, TGErrorFactory> = {
     TIME_WAIT_CONFLICT: ( errorConfig: IGErrorConfig ) => {
         return {
             success: false,
-            status_code: statusCode.BAD_REQUEST,
+            status_code: statusCode.BAD_REQUEST, 
             error: {
                 code: 'B13',
                 message: `Hemos detectado que existe una solicitud en curso, favor de intentar después de`,

@@ -1,7 +1,8 @@
 import { Router } from 'express';
-import { repositoryControllers } from './controllers/repository';
 
+import { repositoryControllers } from './controllers/repository';
 import { addUserRule } from './rules/add.user.rule';
+import { accessAuthorization } from '@middlewares/authorization/access.authorization';
 
 /**
  * Enrutador que coordina los servicios de **Usuario**.
@@ -49,6 +50,7 @@ export const UserRouter = (): Router => {
     */
     userRouter.get(
         paths.getUsers,
+        accessAuthorization,
         repositoryControllers('getUsers')
     );
 

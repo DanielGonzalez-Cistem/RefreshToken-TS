@@ -53,13 +53,23 @@ declare global {
     /**
      * Interfaz gobal que define las propiedades de generación de token.
      */
-    interface IGenerateToken {
+    interface IGGenerateToken {
         origin: TGOrigin;
         payload: object;
         signToken: string;
         typeExpires: TGExpirationToken;
         typeToken?: TGToken;
     }
+
+    /**
+     * Interfaz que define las propiedades de verificación de token.
+     */
+    export interface IGVerifyToken {
+        token: string;
+        signToken: string;
+        typeToken: TGToken;
+    }
+
 
 }
 

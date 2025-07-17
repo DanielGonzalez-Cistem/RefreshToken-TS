@@ -100,6 +100,17 @@ declare global {
     }
 
     /**
+     * Definición de interfaz para el payload de un token de autenticación.
+     */
+    interface IGJWTDecoded {
+        origin: TGOrigin,
+        typeToken: TGToken;
+        idUser: number;
+        iat: number,
+        exp: number
+    }
+
+    /**
      * Tipado global de entornos de desarrollo.
      */
     type TGNodeEnv = 'development' | 'production' | 'test';
