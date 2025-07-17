@@ -1,19 +1,20 @@
 import { Exception } from '@errors/exception.error';
+import { secretEnvs } from '@env/handler';
 import { verifyToken } from '@helpers/jwt/handler';
 
-import { ICheckToken } from '../interfaces/authorization.interface';
-import { secretEnvs } from '@env/handler';
+import { ICheckToken, ICheckTokenOutput } from '../interfaces/authorization.interface';
 
 /**
+ * Función para verificar la integridad de un token.
  * 
+ * @function
+ * @name checkToken
  * @param args Argumentos de función.
+ * @returns Propiedades de token
  */
-export const checkToken = async ( args: ICheckToken ) => {
+export const checkToken = async ( args: ICheckToken ): Promise<ICheckTokenOutput> => {
 
     const { bearerToken, typeToken } = args;
-
-    console.log('ARGS: ', args);
-    console.log('BEARER TOKEN: ', bearerToken);
 
     //* Verificar si se ha recibido un BEARER TOKEN
     if ( bearerToken === undefined ) throw new Exception({ 
@@ -35,8 +36,15 @@ export const checkToken = async ( args: ICheckToken ) => {
         token,
         typeToken
     });
-    
-    console.log('payloadToken: ', payloadToken);
 
+    //* Verificar si el origen del token es correcto
+    if (payloadToken?.origin !== 'LOGIN') {
+        throw new Exception({ type: 'INVALID_TRANSACTION' });
+    }
+
+    return {
+        idUser: payloadToken?.idUser!,
+        token
+    };
 
 }

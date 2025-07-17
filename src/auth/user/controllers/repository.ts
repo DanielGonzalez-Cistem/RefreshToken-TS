@@ -1,12 +1,14 @@
 import { Request, Response, NextFunction } from 'express';
 
 import { LoginController } from './login.controller';
+import { RefreshTokenController } from './refresh.token.controller';
 
 /**
   * Definición de tipos de controladores.
  */
 type TypeControllers = 
-    'login' 
+  'login'         |
+  'refreshToken' 
 ;
 
 /**
@@ -21,6 +23,7 @@ type TypeAppControllers = {
  */
 const controllers: TypeAppControllers = {
     login: LoginController,
+    refreshToken: RefreshTokenController
 }
 
 /**

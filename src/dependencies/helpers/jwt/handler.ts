@@ -44,19 +44,14 @@ export const generateToken = ( args: IGGenerateToken ): string => {
  * @name verifyToken
  * @param args Argumentos de función.
  */
-export const verifyToken = ( args: IGVerifyToken ) => {
+export const verifyToken = ( args: IGVerifyToken ): IGJWTDecoded|undefined  => {
     
     const { signToken, token, typeToken } = args;
 
     try {
         
         //* Decodificación de token en caso de ser correcto
-        const JWTDecoded = verify(token, signToken) as IGJWTDecoded;
-        console.log('JWTDecoded: ', JWTDecoded);
-
-        return {
-            idUser: JWTDecoded.idUser
-        };
+        return verify(token, signToken) as IGJWTDecoded;
 
     } catch (error: any) {
         

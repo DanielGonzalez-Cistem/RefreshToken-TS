@@ -1,5 +1,7 @@
 import { Router } from 'express';
 
+import { refreshAuthorization } from '@middlewares/authorization/refresh.authorization';
+
 import { repositoryControllers } from './controllers/repository';
 import { loginRule } from './rules/login.rule';
 
@@ -21,22 +23,36 @@ export const UserRouter = (): Router => {
      * Centralización de rutas del enrutador **Usuario**.
     */
     const paths = {
-        login: '/login'
-        
+        login: '/login',
+        refreshToken: '/refresh_token'
     };
 
     /**
      * * Servicio que realiza la autenticación de usuario.
      * 
      * @function
-     * @name GET /login
-     * @path {GET} /login
+     * @name POST /login
+     * @path {POST} /login
      * @memberof userRouter
     */
     userRouter.post(
         paths.login,
         loginRule,
         repositoryControllers('login')
+    );
+
+    /**
+     * * Servicio que realiza el refresco de tokens de autenticación.
+     * 
+     * @function
+     * @name POST /refresh_token
+     * @path {POST} /refresh_token
+     * @memberof userRouter
+    */
+    userRouter.post(
+        paths.refreshToken,
+        refreshAuthorization,
+        repositoryControllers('refreshToken')
     );
 
     return userRouter;

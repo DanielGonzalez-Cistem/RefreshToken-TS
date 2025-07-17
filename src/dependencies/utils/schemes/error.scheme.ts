@@ -90,7 +90,7 @@ export const errorScheme: Record<TGErrors, TGErrorFactory> = {
             status_code: statusCode.UNAUTHORIZED,
             error: {
                 code: 'B07',
-                message: 'La transacción del token proporcionado no es válido',
+                message: 'El origen del token proporcionado no es válido',
                 details: null
             }
         }

@@ -5,15 +5,15 @@ import { checkToken } from './helpers/check.token';
 import { checkUser } from './helpers/check.user';
 
 /**
- * Middleware que verifica la autorización de token de acceso.
+ * Middleware que verifica la autorización de token de refresco.
  * 
  * @function
- * @name accessAuthorization
+ * @name refreshAuthorization
  * @param req - Propiedades de solicitud HTTP.
  * @param res - Propiedades de respuesta HTTP.
  * @param next - Continuación de flujo.
  */
-export const accessAuthorization = async (req: Request, res: Response, next: NextFunction) => {
+export const refreshAuthorization = async (req: Request, res: Response, next: NextFunction) => {
 
     /**
      * Inicialización de token extraída de la petición.
@@ -21,13 +21,13 @@ export const accessAuthorization = async (req: Request, res: Response, next: Nex
     const bearerToken: string|undefined = req.headers.authorization;
 
     //* Verificar estructura de token
-    const { idUser, token } = await checkToken({ bearerToken, typeToken: 'ACCESS_TOKEN' });
+    const { idUser, token } = await checkToken({ bearerToken, typeToken: 'REFRESH_TOKEN' });
 
     //* Verificar integridad de usuario
     const { email } = await checkUser( idUser );
     
     //* Realizar verificación de sesión
-    const { idSession } = await checkSession({ idUser, token, typeToken: 'ACCESS_TOKEN' });
+    const { idSession } = await checkSession({ idUser, token, typeToken: 'REFRESH_TOKEN' });
 
     //* Inyectar propiedades de usuario (los que sean necesario)
     req.user = {
@@ -37,6 +37,7 @@ export const accessAuthorization = async (req: Request, res: Response, next: Nex
         origin: 'LOGIN',
         token
     }
+
     //TODO: Inyectar propiedades adicionales (permisos, clientes, etc)
 
     next();

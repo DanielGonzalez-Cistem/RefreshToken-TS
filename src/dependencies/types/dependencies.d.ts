@@ -26,7 +26,7 @@ declare global {
     /**
      * Tipado global para definir los tipos de token.
      */
-    type TGToken = 'ACCESS_TOKEN' | 'GENERIC' | 'REFRESH_TOKEN';
+    type TGToken = 'ACCESS_TOKEN' | 'VERIFY' | 'REFRESH_TOKEN';
 
     /**
      * Tipado global para definir los tipos de expiración.
