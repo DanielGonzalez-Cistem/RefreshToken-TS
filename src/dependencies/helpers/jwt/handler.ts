@@ -18,7 +18,7 @@ export const generateToken = ( args: IGGenerateToken ): string => {
         payload,
         signToken,
         typeExpires,
-        typeToken = 'GENERIC'
+        typeToken = 'VERIFY'
     } = args;
 
     const token = sign(
